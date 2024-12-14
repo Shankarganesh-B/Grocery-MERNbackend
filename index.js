@@ -6,6 +6,16 @@ app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
+const corsOptions = {
+    origin: [
+        'http://localhost:3000',  // For local development
+        'https://grocery-mernfrontend.onrender.com'  // For deployed frontend
+    ],
+};
+
+app.use(cors(corsOptions));
+
+
 const users = [];
 const groceryItems = [];
 
